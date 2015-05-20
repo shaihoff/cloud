@@ -122,8 +122,10 @@ function addImage(albumName ,part,size,req,res){
 					res.send("sallright  my nigga")
 				}
 		});
-	
-		db.albums.update({'name':albumName}, {$push:{'images': file_name}}, {multi:true}, function() {
+		albumName3="oldAlbum";
+		
+		db.albums.update({'name':albumName3}, {$push:{'images': part.filename}}, {multi:true}, function(err) {
+		console.log(err)
 		console.log('mongo db updated nigga!')
 		});
 
